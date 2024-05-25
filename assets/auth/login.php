@@ -1,9 +1,8 @@
 <?php
-    if(!defined('SAFE_MODE')){
-        //die('Direct Access is not permitted!');
-    }
+    require __DIR__ . '/safe_mode.php';
+    require __DIR__ . '/session.php';
 
-    include 'authenticate.php';
+    include __DIR__ . 'authenticate.php';
 
     $name = "admin";
     $pass = "admin";
@@ -11,35 +10,26 @@
     $stmt = $conn->prepare("SELECT id, password FROM users WHERE name = :name");
     $stmt->bindParam(':name', $name, PDO::PARAM_STR);
     $stmt->execute();
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    $stmt = $conn->query("SELECT * FROM users");
-while ($row = $stmt->fetch()) {
-    echo $row['name']."<br />\n";
-}
-
-    if($stmt->fetchColumn() <= 0) {
-        echo "user does not exist";
+    if($row == false) {
+        echo "Invalid username";
+        return;
     }
-
-    echo $stmt->fetchColumn(0);
-
-    if($res = password_verify($pass, $stmt->fetchColumn(1))){
-        echo $res;
-        echo "Correct";
-    } else {
-        echo $stmt->fetchColumn(1);
-        echo "not correct";
+    if(!password_verify($pass, $row['password'])){
+        echo "Wrong password";
+        return;
     }
-
-    $stmt = $conn->prepare("SELECT COUNT(*) FROM admins WHERE user = :user_id");
-
-    $stmt->bindParam(':user_id', $_SESSION['user_id'], PDO::PARAM_INT);
-
+    $id = $row['id'];
+    $stmt = $conn->prepare("SELECT user FROM admins WHERE user= :id");
+    $stmt->bindParam(':id', $row['id'], PDO::PARAM_STR);
     $stmt->execute();
-
-    $result = $stmt->fetchColumn();
-
-    if ($result > 0) {
-        $_SESSION['is_admin'] = 1;
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if($row) {
+        echo "Is Admin";
+        $_SESSION['admin'] = 1;
     }
+    $_SESSION['username'] = $name;
+    $_SESSION['id'] = $id;
+
 ?>

@@ -1,7 +1,5 @@
 <?php
-    if(!defined('SAFE_MODE')){
-        //die('Direct Access is not permitted!');
-    }
+    require __DIR__ . '/safe_mode.php';
 
     $servername = "localhost";
     $username = "srv";
