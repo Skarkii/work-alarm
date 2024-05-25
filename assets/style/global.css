@@ -3,3 +3,8 @@ body {
     padding: 0;
     background-color: B3B4BD;
 }
+
+.warning-text {
+    color: red;
+    font-weight: bold;
+}

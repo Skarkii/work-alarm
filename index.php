@@ -5,13 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-<a>test</a>
 <link rel="stylesheet" href="assets/style/global.css">
 </head>
 <body>
 
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
+<h1>Index Page</h1>
 
 </body>
 </html>

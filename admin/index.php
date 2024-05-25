@@ -1,10 +1,22 @@
 <?php
     define('SAFE_MODE', true);
 
-    $is_admin = require '../assets/auth/is_admin.php';
+    $is_admin = require __DIR__ . '/../assets/auth/is_admin.php';
     if($is_admin == false){
         header('location:/');
     }
+
+    require __DIR__ . '/../assets/components/header.php';
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="../assets/style/global.css">
+</head>
+<body>
+
 <h1>Admin Page</h1>
+
+</body>
+</html>
 
