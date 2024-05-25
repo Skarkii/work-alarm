@@ -27,19 +27,27 @@ if(isset($_POST['name']) and isset($_POST['pass'])){
 </head>
 <body>
 
+<div class="flex-box">
+<div>
+</div>
+<div>
+<div class="form-background">
 <form action="" method="POST">
   <label for="name">Username:</label><br>
   <input type="text" id="name" name="name"><br>
-  <label for="pass">Password::</label><br>
+  <label for="pass">Password:</label><br>
   <input type="password" id="pass" name="pass">
-<input type="submit" value="Submit">
-
+<br><br>
+<input type="submit" value="Log In!">
 <?php
 if(isset($failed_login)) {
-    echo '<br><a class="warning-text">Failed to login!</a>';
+    echo '<br><br><a class="warning-text">Failed to login!</a>';
 }
 ?>
 </form>
+</div>
+</div>
+</div>
 
 </body>
 </html>

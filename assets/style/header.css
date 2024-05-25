@@ -4,21 +4,29 @@ ul {
   padding: 0;
   overflow: hidden;
   background-color: green;
+  height: 5vh;
 }
 li {
   float: left;
 }
 
+li:first-child {
+    margin-left: 1vw;
+}
 li:last-child {
     float: right;
+    margin-right: 1vw;
 }
 
 li a {
-    display:block;
+    display:flex;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    justify-content: center;
+    align-items: center;
     color:white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    height: 100%;
 }
 
 li a:hover {

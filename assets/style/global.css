@@ -1,10 +1,39 @@
 body {
-    margin: 0;
-    padding: 0;
+    margin: 0px;
+    padding: 0px;
     background-color: B3B4BD;
 }
 
 .warning-text {
     color: red;
     font-weight: bold;
+}
+
+.flex-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1716062778683-35d5f505d6ac?q=80&w=2108&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0px;
+    margin: 0px;
+    height: 95vh;
+}
+
+
+.flex-box > div {
+    width: 100vw;
+    text-align: center;
+}
+
+html, body {
+    height: 100vh;
+    margin: 0px;
+}
+
+.form-background {
+    position: relative;
+    margin: 0vw;
 }
