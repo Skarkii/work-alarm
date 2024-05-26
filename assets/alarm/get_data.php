@@ -1,6 +1,6 @@
 <?php
 if(!isset($_SERVER['HTTP_X_API_KEY'])) {
-    echo "Invalid API Key"; 
+    echo "Invalid API Key (not set)"; 
     return;
 }
 
