@@ -4,13 +4,13 @@ import threading
 
 url = 'http://localhost:8080/assets/alarm/get_data.php'
 
-headers = {
-    'X_API_KEY': 'im_safe_i_promise',
-}
-
 
 def api_client():
     while (True):
+        headers = {
+                'X_API_KEY': 'im_safe_i_promise',
+                'REQUEST': 'GET_DATA',
+                }
         try:
             response = requests.get(url, headers=headers)
 
