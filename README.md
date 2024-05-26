@@ -50,6 +50,20 @@ CREATE TABLE `logs` (
   CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
 )
 ```
+
+```mysql
+CREATE TABLE `is_alive` (
+  `device` int(11) NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp()
+)
+```
+
+Requires:
+
+```mysql
+INSERT INTO is_alive (device) VALUES (1);
+```
+
 with full permissions for the user 'srv'@'localhost' with password 'srvdbpass'
 
 Some example users:
