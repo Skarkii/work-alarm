@@ -9,7 +9,8 @@
 </head>
 <body>
 
-<h1>Index Page</h1>
-
+<div class="news-flex-box">
+<?php require __DIR__ . '/assets/components/news.php'; ?>
+</div>
 </body>
 </html>

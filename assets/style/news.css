@@ -1,0 +1,29 @@
+.news-card {
+    border-color: red;
+    border-radius: 11px;
+    margin: 0px;
+}
+
+.news-flex-box {
+    display: flex;
+    flex-flow: column;
+}
+
+.news-flex-box > div {
+    flex: 1;
+    max-width: 50vw;
+    margin-left: 1vw;
+    margin-top: 1vw;
+    padding: 5px;
+    background-color: #f0f0f0;
+    box-sizing: border-box;
+}
+
+.news-card > h1, h2, h3, h4 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.news-card > h4 {
+    margin-top: 0.5vh;
+}

@@ -28,6 +28,18 @@ CREATE TABLE `managers` (
 )
 ```
 
+```mysql
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `author` int(11) NOT NULL,
+  `date` timestamp NULL DEFAULT current_timestamp(),
+  `contents` text DEFAULT NULL,
+  `title` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `author` (`author`),
+  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`id`)
+)```
+
 with full permissions for the user 'srv'@'localhost' with password 'srvdbpass'
 
 Some example users:
