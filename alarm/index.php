@@ -24,5 +24,6 @@ require __DIR__ . '/../assets/components/header.php';
   <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
 </div>
 
+<?php  require __DIR__ . '/../assets/alarm/warning.php'; ?>
 </body>
 </html>

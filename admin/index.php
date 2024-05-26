@@ -17,6 +17,7 @@
 
 <h1>Admin Page</h1>
 
+<?php  require __DIR__ . '/../assets/alarm/warning.php'; ?>
 </body>
 </html>
 

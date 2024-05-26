@@ -49,5 +49,6 @@ if(isset($failed_login)) {
 </div>
 </div>
 
+<?php  require __DIR__ . '/assets/alarm/warning.php'; ?>
 </body>
 </html>

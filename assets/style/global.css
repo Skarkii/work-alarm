@@ -38,3 +38,20 @@ html, body {
     position: relative;
     margin: 0vw;
 }
+
+.popup {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: red;
+    text-align: center;
+    padding: 20px;
+    z-index: 1000;
+    display: none;
+}
+
+.popup p {
+    margin: 0;
+}

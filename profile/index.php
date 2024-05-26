@@ -23,5 +23,6 @@ require __DIR__ . '/../assets/profile/functions.php';
 echo worked_hours_total();
 ?>
 </a>
+<?php  require __DIR__ . '/../assets/alarm/warning.php'; ?>
 </body>
 </html>

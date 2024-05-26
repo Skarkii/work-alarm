@@ -18,5 +18,6 @@ require __DIR__ . '/../assets/components/header.php';
 
 <h1>Manager Page</h1>
 
+<?php  require __DIR__ . '/../assets/alarm/warning.php'; ?>
 </body>
 </html>

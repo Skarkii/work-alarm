@@ -8,9 +8,9 @@
 <link rel="stylesheet" href="assets/style/global.css">
 </head>
 <body>
-
 <div class="news-flex-box">
 <?php require __DIR__ . '/assets/components/news.php'; ?>
 </div>
+<?php  require __DIR__ . '/assets/alarm/warning.php'; ?>
 </body>
 </html>
