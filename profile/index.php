@@ -4,6 +4,7 @@ $is_logged_in = require __DIR__ . '/../assets/auth/is_logged_in.php';
 
 if(!$is_logged_in) {
     header('location: /');
+
 }
 
 require __DIR__ . '/../assets/components/header.php';
@@ -17,5 +18,9 @@ require __DIR__ . '/../assets/components/header.php';
 
 <h1>Profile Page</h1>
 
+<?php
+require __DIR__ . '/../assets/profile/functions.php';
+echo worked_hours_total();
+?>
 </body>
 </html>

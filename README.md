@@ -41,6 +41,15 @@ CREATE TABLE `posts` (
 )
 ```
 
+```mysql
+CREATE TABLE `logs` (
+  `user` int(11) NOT NULL,
+  `time` timestamp NULL DEFAULT current_timestamp(),
+  `entered` tinyint(1) NOT NULL,
+  KEY `user` (`user`),
+  CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
+)
+```
 with full permissions for the user 'srv'@'localhost' with password 'srvdbpass'
 
 Some example users:
