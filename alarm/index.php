@@ -19,9 +19,6 @@ require __DIR__ . '/../assets/components/header.php';
 <body>
 
 <h1>Alarm Page</h1>
-<div>
-  <button type="button" onclick="get_data_once()">Get Data</button>
-</div>
 
 <div>
   <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
