@@ -3,12 +3,12 @@ function get_data() {
     xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             const data = JSON.parse(this.response);
-            console.log(data['alarm']);
             var rangeInput = document.getElementById('myRange');
             rangeInput.value = parseInt(data['alarm']);
         }
     };
-    xhttp.open("GET", "../assets/alarm/get_data.php", true);
+    xhttp.open("POST", "../assets/alarm/get_data.php", true);
+    xhttp.setRequestHeader('X-API-KEY', 'im_safe_i_promise');
     xhttp.send();
 }
 

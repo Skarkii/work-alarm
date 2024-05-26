@@ -5,11 +5,12 @@ require __DIR__ . '/../auth/session.php';
 
 function worked_hours_total(){
     require __DIR__ . '/../auth/authenticate.php';
-    $stmt = $conn->prepare("SELECT time, entered FROM logs order by time");
+    $stmt = $conn->prepare("SELECT time, entered FROM logs where user=:id order by time");
+    $stmt->bindParam(":id", $_SESSION['id']);
     $stmt->execute();
     $entries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-     $totalTimeInSeconds = 0;
+    $totalTimeInSeconds = 0;
     $entryTime = null;
 
     foreach ($entries as $entry) {
@@ -32,7 +33,4 @@ function worked_hours_total(){
     return floor($totalTimeInSeconds / 3600);
 }
 
-function worked_hours_month(){
-    return 5;
-}
 ?>

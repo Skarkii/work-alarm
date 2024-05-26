@@ -34,10 +34,16 @@ function login($name, $pass){
     $_SESSION['username'] = $name;
     $_SESSION['id'] = $id;
 
-    $stmt = $conn->prepare("insert into logs (user, entered) values (:id, 1)");
-    // 1 indicates entered as in mysql true == 1 but in php true == 0
+    $stmt = $conn->prepare("SELECT count(*) FROM logs WHERE user= :id");
     $stmt->bindParam(':id', $id, PDO::PARAM_STR);
     $stmt->execute();
+    $row = $stmt->fetchColumn();
+    if($row['count'] % 2 == 0) {
+        $stmt = $conn->prepare("insert into logs (user, entered) values (:id, 1)");
+        // 1 indicates entered as in mysql true == 1 but in php true == 0
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->execute();
+    }
     return true;
 }
 ?>

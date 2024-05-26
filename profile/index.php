@@ -16,11 +16,12 @@ require __DIR__ . '/../assets/components/header.php';
 </head>
 <body>
 
-<h1>Profile Page</h1>
-
+<h1>Hey! <?php echo $_SESSION['username'];  ?></h1>
+<a>Total Hours worked:
 <?php
 require __DIR__ . '/../assets/profile/functions.php';
 echo worked_hours_total();
 ?>
+</a>
 </body>
 </html>
