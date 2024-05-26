@@ -38,7 +38,8 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`id`),
   KEY `author` (`author`),
   CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`id`)
-)```
+)
+```
 
 with full permissions for the user 'srv'@'localhost' with password 'srvdbpass'
 
