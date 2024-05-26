@@ -1,6 +1,11 @@
 import requests
 import time
 import threading
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+print(os.getenv('URL'))
 
 url = 'http://localhost:8080/assets/alarm/get_data.php'
 
