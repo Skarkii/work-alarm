@@ -3,65 +3,15 @@
 Developed on Arch Linux WSL. The project uses mariadb mysql, lighttpd and php.
 
 Requires a database called work_alarm_db with the following tables:
-```mysql
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(50) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
-)
-```
 
-```mysql
-CREATE TABLE `admins` (
-  `user` int(11) NOT NULL,
-  KEY `user` (`user`),
-  CONSTRAINT `admins_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
-)
-```
+(Updated, now create db from database.sql)
 
-```mysql
-CREATE TABLE `managers` (
-  `user` int(11) NOT NULL,
-  KEY `user` (`user`),
-  CONSTRAINT `managers_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
-)
-```
-
-```mysql
-CREATE TABLE `posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `author` int(11) NOT NULL,
-  `date` timestamp NULL DEFAULT current_timestamp(),
-  `contents` text DEFAULT NULL,
-  `title` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `author` (`author`),
-  CONSTRAINT `posts_ibfk_1` FOREIGN KEY (`author`) REFERENCES `users` (`id`)
-)
-```
-
-```mysql
-CREATE TABLE `logs` (
-  `user` int(11) NOT NULL,
-  `time` timestamp NULL DEFAULT current_timestamp(),
-  `entered` tinyint(1) NOT NULL,
-  KEY `user` (`user`),
-  CONSTRAINT `logs_ibfk_1` FOREIGN KEY (`user`) REFERENCES `users` (`id`)
-)
-```
-
-```mysql
-CREATE TABLE `is_alive` (
-  `device` int(11) NOT NULL,
-  `time` timestamp NOT NULL DEFAULT current_timestamp()
-)
-```
-
-Requires:
+Still Requires:
 
 ```mysql
 INSERT INTO is_alive (device) VALUES (1);
+INSERT INTO alarm_config (config, value) VALUES ("activated", 1);
+INSERT INTO alarm_config (config, value) VALUES ("time_upon_empty", 1);
 ```
 
 with full permissions for the user 'srv'@'localhost' with password 'srvdbpass'
@@ -74,4 +24,11 @@ INSERT INTO users (name, password) VALUES ("test", "$2y$10$6YADsO4yCklIPGPQAE6bZ
 
 INSERT INTO admins (user) VALUES (1);
 INSERT INTO managers (user) VALUES (2);
+
+# Start Server
+```sh
+sudo systemctl start lighttpd
+sudo systemctl start mysql
 ```
+
+Then run ``/client/main.py`` on raspberry pi
