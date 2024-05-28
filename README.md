@@ -24,7 +24,7 @@ INSERT INTO users (name, password) VALUES ("test", "$2y$10$6YADsO4yCklIPGPQAE6bZ
 
 INSERT INTO admins (user) VALUES (1);
 INSERT INTO managers (user) VALUES (2);
-
+```
 # Start Server
 ```sh
 sudo systemctl start lighttpd
