@@ -17,6 +17,7 @@ require __DIR__ . '/../assets/components/header.php';
 <body>
 
 <h1>Manager Page</h1>
+<?php require __DIR__ . '/../assets/components/manager_table.php'; ?>
 
 <?php  require __DIR__ . '/../assets/alarm/warning.php'; ?>
 </body>

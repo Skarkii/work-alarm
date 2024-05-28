@@ -18,10 +18,22 @@ define('SAFE_MODE', true);
 require __DIR__ . '/../auth/authenticate.php';
 
 switch($_SERVER['HTTP_REQUEST']){
-    case 'GET_DATA':
+    case 'alarm_data':
+        $stmt = $conn->prepare("select count(*) from users_in");
+        $stmt->execute();
+        $users_in = $stmt->fetch();
+
         $data = array(
-        'alarm' => 3,
+            "users_in" => $users_in['count(*)'],
         );
+
+        $stmt = $conn->prepare("select config, value from alarm_config");
+        $stmt->execute();
+        $cfgs= $stmt->fetchAll();
+        foreach($cfgs as $cfg) {
+            $data = array_merge($data, array($cfg['config'] => $cfg['value']));
+        }
+        //  $data = array_merge($data, array("test"=>"test"));
         echo json_encode($data);
         return 200;
         break;

@@ -44,6 +44,11 @@ function login($name, $pass){
         $stmt->bindParam(':id', $id, PDO::PARAM_STR);
         $stmt->execute();
     }
+
+    $stmt = $conn->prepare("insert ignore into users_in (user) values (:id)");
+    $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+    $stmt->execute();
+
     return true;
 }
 ?>

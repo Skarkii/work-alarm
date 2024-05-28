@@ -29,8 +29,6 @@ if(isset($_POST['name']) and isset($_POST['pass'])){
 
 <div class="flex-box">
 <div>
-</div>
-<div>
 <div class="form-background">
 <form action="" method="POST">
   <label for="name">Username:</label><br>

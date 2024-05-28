@@ -16,6 +16,13 @@
 <body>
 
 <h1>Admin Page</h1>
+<?php 
+    if(isset($_GET['user'])) {
+        require __DIR__ . '/../assets/components/user_table.php';
+    } else {
+        require __DIR__ . '/../assets/components/admin_table.php';
+    }
+?>
 
 <?php  require __DIR__ . '/../assets/alarm/warning.php'; ?>
 </body>

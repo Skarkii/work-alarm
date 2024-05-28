@@ -2,7 +2,6 @@
 require __DIR__ . '/../auth/safe_mode.php';
 require __DIR__ . '/../auth/session.php';
 
-
 function worked_hours_total(){
     require __DIR__ . '/../auth/authenticate.php';
     $stmt = $conn->prepare("SELECT time, entered FROM logs where user=:id order by time");
